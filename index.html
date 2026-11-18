@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Robot AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="robot-layout">
+
+        <div id="robotFace" class="robot-face normal">
+            <div class="eye">
+                <div class="tear"></div>
+            </div>
+            <div class="eye">
+                <div class="tear"></div>
+            </div>
+        </div>
+
+      <div class="controls">
+    <button id="startCamera" type="button" title="Start Camera">📷</button>
+    <button id="stopCamera" type="button" title="Stop Camera" disabled>⏹️</button>
+    <button type="button" title="Happy" onclick="setExpression('happy')">😊</button>
+    <button type="button" title="Sad" onclick="setExpression('sad')">😢</button>
+    <button type="button" title="Angry" onclick="setExpression('angry')">😠</button>
+    <button type="button" title="Surprised" onclick="setExpression('surprised')">😲</button>
+</div>
+
+        <section class="system-info">
+            <p id="aiStatus">AI Status: Loading model...</p>
+            <p id="status">Current expression: NORMAL</p>
+            <p id="confidence">Confidence: --</p>
+        </section>
+
+    </main>
+
+    <!-- Webcam tetap aktif untuk AI, tetapi tidak ditampilkan -->
+    <div class="camera-runtime" aria-hidden="true">
+        <video id="camera" autoplay playsinline muted></video>
+        <canvas id="captureCanvas" hidden></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
